@@ -1,9 +1,14 @@
 package com.mscz.utils;
 
+
+
 import com.tuyang.beanutils.config.BeanCopyConfig;
 import com.tuyang.beanutils.internal.logger.Logger;
 
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * @Description
@@ -30,4 +35,6 @@ public class BeanCopyUtils {
         BeanCopyConfig.setBeanCopyConfig(beanCopyConfig);
         return com.tuyang.beanutils.BeanCopyUtils.copyList(sourceList,targetClass);
     }
+
+
 }
