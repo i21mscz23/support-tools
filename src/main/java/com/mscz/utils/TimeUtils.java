@@ -1,13 +1,14 @@
 package com.mscz.utils;
 
-import java.time.Instant;
-import java.time.LocalDateTime;
-import java.time.ZoneId;
-import java.time.ZonedDateTime;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.time.*;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeFormatterBuilder;
 import java.time.temporal.ChronoField;
+import java.time.temporal.ChronoUnit;
 import java.util.Date;
+import java.util.regex.Pattern;
 
 /**
  * @Description
@@ -53,6 +54,13 @@ public class TimeUtils {
 
 
 
+
+    /**
+     * 字符串传转LocalDateTime(对字符串有严格要求。如月日必须是2位数)
+     * @param date
+     * @param timeFormatter
+     * @return
+     */
     public static LocalDateTime convertToLocalDateTime(String date,String timeFormatter){
         DateTimeFormatter formatter = new DateTimeFormatterBuilder()
                 .appendPattern(timeFormatter)
@@ -66,6 +74,48 @@ public class TimeUtils {
         LocalDateTime localDateTime = LocalDateTime.parse(date, formatter);
         return localDateTime;
     }
+
+
+    /**
+     * 距离当前时间多少年
+     * @param time
+     * @return
+     */
+    public static Long distanceTime(LocalDateTime time){
+        LocalDateTime now = LocalDateTime.now();
+
+        LocalDateTime from = LocalDateTime.from(time);
+        long until = from.until(now, ChronoUnit.YEARS);
+        return until;
+    }
+
+    /**
+     * 转换成成指定格式字符串
+     * @param time
+     * @param pattern
+     * @return
+     */
+    public static String getTimeString(LocalDateTime time,String pattern){
+        if(time == null){
+            return null;
+        }
+
+        return DateTimeFormatter.ofPattern(pattern).format(time);
+    }
+
+
+    /**
+     * 时间戳(毫秒)转换成LocalDateTime
+     * @param time
+     * @return
+     */
+    public static LocalDateTime getLocalDateTime(Long time){
+        LocalDateTime dateTime = LocalDateTime.ofEpochSecond(time / 1000,0, ZoneOffset.ofHours(8));
+        return dateTime;
+    }
+
+
+
 
 
 
