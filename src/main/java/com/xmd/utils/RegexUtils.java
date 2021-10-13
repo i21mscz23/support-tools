@@ -1,8 +1,7 @@
-package com.mscz.utils;
+package com.xmd.utils;
 
 import org.apache.commons.lang3.StringUtils;
 
-import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.regex.Matcher;
@@ -41,6 +40,25 @@ public class RegexUtils {
         Matcher m = p.matcher(str);
         return m.replaceAll("").trim();
     }
+
+    /**
+     * 查询所有特殊符号的位置
+     * @param str
+     * @return
+     */
+    public static List<Integer> queryFirstSpecialCharacterInedex(String str){
+        String regEx="[`_~!@#$%^&*()+=|{}':;',\\[\\].<>/?~！@#￥%……&*（）——+|{}【】‘；：”“’。，、？]";
+        Matcher slashMatcher = Pattern.compile(regEx).matcher(str);
+        List<Integer> list = new ArrayList<>();
+        while(slashMatcher.find()) {
+            list.add(slashMatcher.start());
+        }
+        return list;
+    }
+
+
+
+
 
 
     /**
@@ -94,6 +112,46 @@ public class RegexUtils {
 
         return list;
     }
+
+    public static List<String> getTimes(String str){
+        List<String> list = new ArrayList<>();
+        if(StringUtils.isNotBlank(str)){
+            String regex = "([0-9]{4}.[0-9]{2})";
+
+            Pattern p = Pattern.compile(regex);
+            Matcher m = p.matcher(str);
+
+            while(m.find()){
+                list.add(m.group());
+            }
+        }
+
+
+        return list;
+    }
+
+    /**
+     * 只为数字
+     * @param str
+     * @return
+     */
+    public static boolean isNumeric(String str) {
+        String regEx = "[0-9]{4}";
+        Pattern pat = Pattern.compile(regEx);
+        Matcher mat = pat.matcher(str);
+        if (mat.find()) {
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
+
+
+
+
+
+
 
 
 }

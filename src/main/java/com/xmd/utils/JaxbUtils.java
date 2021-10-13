@@ -1,4 +1,4 @@
-package com.mscz.utils;
+package com.xmd.utils;
 
 import cn.hutool.core.util.StrUtil;
 

@@ -1,4 +1,4 @@
-package com.mscz.utils;
+package com.xmd.utils;
 
 import com.google.common.io.ByteStreams;
 

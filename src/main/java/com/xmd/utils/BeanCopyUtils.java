@@ -1,4 +1,4 @@
-package com.mscz.utils;
+package com.xmd.utils;
 
 
 
@@ -8,8 +8,6 @@ import com.tuyang.beanutils.config.BeanCopyConfig;
 import com.tuyang.beanutils.internal.logger.Logger;
 import net.sf.cglib.beans.BeanMap;
 
-import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 

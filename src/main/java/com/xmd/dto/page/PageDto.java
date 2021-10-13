@@ -1,4 +1,4 @@
-package com.mscz.dto.page;
+package com.xmd.dto.page;
 
 /**
  * @Description 分页入参

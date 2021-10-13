@@ -1,10 +1,8 @@
-package com.mscz.utils;
+package com.xmd.utils;
 
 import org.apache.commons.lang3.StringUtils;
 
 import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.util.List;
 
 /**
  * @Description

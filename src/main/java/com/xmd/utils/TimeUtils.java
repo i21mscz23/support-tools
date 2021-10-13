@@ -1,14 +1,13 @@
-package com.mscz.utils;
+package com.xmd.utils;
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
+import org.apache.commons.lang3.StringUtils;
+
 import java.time.*;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeFormatterBuilder;
 import java.time.temporal.ChronoField;
 import java.time.temporal.ChronoUnit;
 import java.util.Date;
-import java.util.regex.Pattern;
 
 /**
  * @Description

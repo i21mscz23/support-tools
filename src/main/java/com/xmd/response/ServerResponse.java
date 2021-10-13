@@ -1,4 +1,4 @@
-package com.mscz.response;
+package com.xmd.response;
 
 /**
  * @Description 响应结构
