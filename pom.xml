@@ -6,13 +6,15 @@
 
     <groupId>com.github.i21mscz23</groupId>
     <artifactId>support-tools</artifactId>
-    <version>1.0.2-RELEASE</version>
+    <version>${revision}</version>
 
     <url>https://github.com/i21mscz23/support-tools</url>
     <description>utils</description>
     <name>utils</name>
 
     <properties>
+        <revision>1.0.2-RELEASE</revision>
+
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
         <encoding>UTF-8</encoding>
@@ -26,7 +28,7 @@
         <connection>scm:https://github.com/i21mscz23/support-tools</connection>
         <developerConnection>scm:https://github.com/i21mscz23/support-tools</developerConnection>
         <url>https://github.com/i21mscz23/support-tools</url>
-        <tag>v1.0.1-RELEASE</tag>
+        <tag>${revision}</tag>
     </scm>
 
     <dependencies>
