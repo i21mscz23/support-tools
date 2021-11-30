@@ -2,6 +2,7 @@ package com.xmd.utils;
 
 import org.apache.commons.lang3.StringUtils;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.regex.Matcher;
@@ -145,6 +146,80 @@ public class RegexUtils {
         else {
             return false;
         }
+    }
+
+    /**
+     * 查询符号第n次出现的位置
+     * @param str 被匹配的字符
+     * @param time 第n次
+     * @param regex 符号
+     * @return
+     */
+    public static int querySite(String str,int time,String regex){
+        Pattern pattern = Pattern.compile(regex);
+        Matcher findMatcher = pattern.matcher(str);
+        int number = 0;
+        while(findMatcher.find()) {
+            number++;
+            if(number == time){
+                break;
+            }
+        }
+        int i = findMatcher.start();
+        return i;
+    }
+
+    /**
+     *
+     * @param timeStr
+     * @return
+     */
+    public static LocalDateTime handerTime(String timeStr){
+        LocalDateTime time = null;
+
+        if(StringUtils.isNotBlank(timeStr)){
+            StringBuilder stringBuilder = new StringBuilder();
+            stringBuilder.append(timeStr);
+
+            //yyyy年MM月dd日
+            if(timeStr.matches("\\d{4}年\\d{1,2}月\\d{1,2}日")){
+                String month = StringUtils.substringBetween(timeStr, "年", "月");
+                if(month.length() == 1){
+                    stringBuilder.insert(5,"0");
+                }
+                String day = StringUtils.substringBetween(timeStr, "月", "日");
+                if(day.length() == 1){
+                    stringBuilder.insert(8,"0");
+                }
+
+                System.out.println(stringBuilder.toString());
+
+                time = TimeUtils.convertToLocalDateTime(stringBuilder.toString(), "yyyy年MM月dd日");
+            }else {
+                String symbol = null;
+
+                if (timeStr.matches("\\d{4}-\\d{1,2}-\\d{1,2}")) {
+                    //yyyy-MM-dd
+                    symbol = "-";
+                }else if (timeStr.matches("\\d{4}/\\d{1,2}/\\d{1,2}")) {
+                    //yyyy/MM/dd
+                    symbol = "/";
+                }
+
+                int i = querySite(timeStr, 2, symbol);
+                if(i == 6){
+                    stringBuilder.insert(5,"0");
+                }
+                String dayValue = StringUtils.substringAfterLast(timeStr, symbol);
+                if(StringUtils.length(dayValue) == 1){
+                    stringBuilder.insert(8,"0");
+                }
+                System.out.println(stringBuilder.toString());
+                time = TimeUtils.convertToLocalDateTime(stringBuilder.toString(), "yyyy"+symbol+"MM"+symbol+"dd");
+            }
+        }
+
+        return time;
     }
 
 

@@ -6,14 +6,14 @@
 
     <groupId>com.github.i21mscz23</groupId>
     <artifactId>support-tools</artifactId>
-    <version>${revision}</version>
+    <version>1.0.4-RELEASE</version>
 
     <url>https://github.com/i21mscz23/support-tools</url>
-    <description>utils</description>
-    <name>utils</name>
+    <description>support-tools</description>
+    <name>support-tools</name>
 
     <properties>
-        <revision>1.0.2-RELEASE</revision>
+        <revision>1.0.4-RELEASE</revision>
 
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
@@ -80,6 +80,18 @@
             <artifactId>oss-parent</artifactId>
             <version>9</version>
             <type>pom</type>
+        </dependency>
+
+        <!--pdf-->
+        <dependency>
+            <groupId>com.itextpdf</groupId>
+            <artifactId>itextpdf</artifactId>
+            <version>5.5.13</version>
+        </dependency>
+        <dependency>
+            <groupId>com.itextpdf</groupId>
+            <artifactId>itext-asian</artifactId>
+            <version>5.2.0</version>
         </dependency>
 
     </dependencies>

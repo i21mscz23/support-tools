@@ -16,7 +16,7 @@ import java.util.Map;
  * @Author lixiao
  * @Date 2021/6/29 下午2:57
  */
-public class BeanCopyUtils {
+public class BeanCpyUtils {
 
     private static final int BEAN_COPY_LOGLEVEL_INFO = Logger.LogLevelInfo;
 
