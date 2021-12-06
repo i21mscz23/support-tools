@@ -2,7 +2,6 @@ package com.xmd.utils;
 
 
 
-import cn.hutool.core.collection.CollectionUtil;
 import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
 import com.tuyang.beanutils.config.BeanCopyConfig;
@@ -24,9 +23,6 @@ public class BeanCpyUtils {
     private static final int BEAN_COPY_LOGLEVEL_DEBUG = Logger.LogLevelDebug;
 
     public static <T> T copyBean(Object sourceObject, Class<T> targetClass) {
-        if(sourceObject == null){
-            return null;
-        }
         BeanCopyConfig beanCopyConfig = new BeanCopyConfig();
         beanCopyConfig.setLogLevel(BEAN_COPY_LOGLEVEL_DEBUG);
         BeanCopyConfig.setBeanCopyConfig(beanCopyConfig);
@@ -35,9 +31,6 @@ public class BeanCpyUtils {
 
 
     public static <S, T> List<T> copyList(List<S> sourceList, Class<T> targetClass){
-        if(CollectionUtil.isEmpty(sourceList)){
-            return null;
-        }
         BeanCopyConfig beanCopyConfig = new BeanCopyConfig();
         beanCopyConfig.setLogLevel(BEAN_COPY_LOGLEVEL_DEBUG);
         BeanCopyConfig.setBeanCopyConfig(beanCopyConfig);
