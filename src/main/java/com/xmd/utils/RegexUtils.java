@@ -1,12 +1,15 @@
 package com.xmd.utils;
 
+import com.google.common.collect.Lists;
 import org.apache.commons.lang3.StringUtils;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import java.util.stream.Collectors;
 
 /**
  * @Description
@@ -192,7 +195,6 @@ public class RegexUtils {
                     stringBuilder.insert(8,"0");
                 }
 
-                System.out.println(stringBuilder.toString());
 
                 time = TimeUtils.convertToLocalDateTime(stringBuilder.toString(), "yyyy年MM月dd日");
             }else {
@@ -214,16 +216,12 @@ public class RegexUtils {
                 if(StringUtils.length(dayValue) == 1){
                     stringBuilder.insert(8,"0");
                 }
-                System.out.println(stringBuilder.toString());
                 time = TimeUtils.convertToLocalDateTime(stringBuilder.toString(), "yyyy"+symbol+"MM"+symbol+"dd");
             }
         }
 
         return time;
     }
-
-
-
 
 
 
