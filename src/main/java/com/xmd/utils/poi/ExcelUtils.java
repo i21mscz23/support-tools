@@ -122,19 +122,19 @@ public class ExcelUtils {
         if (cell == null)
             return "";
 
-        if (cell.getCellType() == Cell.CELL_TYPE_STRING) {
+        if (cell.getCellType() == CellType.STRING) {
 
             return cell.getStringCellValue();
 
-        } else if (cell.getCellType() == Cell.CELL_TYPE_BOOLEAN) {
+        } else if (cell.getCellType() == CellType.BOOLEAN) {
 
             return String.valueOf(cell.getBooleanCellValue());
 
-        } else if (cell.getCellType() == Cell.CELL_TYPE_FORMULA) {
+        } else if (cell.getCellType() == CellType.FORMULA) {
 
             return cell.getCellFormula();
 
-        } else if (cell.getCellType() == Cell.CELL_TYPE_NUMERIC) {
+        } else if (cell.getCellType() == CellType.NUMERIC) {
             DecimalFormat df = new DecimalFormat("#");
             return String.valueOf(df.format(cell.getNumericCellValue()));
         }

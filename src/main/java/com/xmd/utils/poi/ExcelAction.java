@@ -8,11 +8,11 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 
 /**
- * @Description
+ * @Description 案例
  * @Author lixiao
  * @Date 2021/12/10 下午2:49
  */
-public class Action {
+public class ExcelAction {
 
 
 
@@ -27,12 +27,12 @@ public class Action {
         XSSFSheet sheet = wb.createSheet();
 
         //设置字体
-        Font font = ExcelUtils.setFont(wb, (short) 16, "宋体", false, HSSFColor.BLACK.index);
+        Font font = ExcelUtils.setFont(wb, (short) 16, "宋体", false, HSSFColor.HSSFColorPredefined.BLACK.getIndex());
 
         CellStyle cellStyle = ExcelUtils.setCellStypeBorder(wb, BorderStyle.MEDIUM, IndexedColors.AQUA, FillPatternType.SOLID_FOREGROUND);
         cellStyle.setFont(font);
 
-        Font contentFont = ExcelUtils.setFont(wb, (short) 12, "宋体", false, HSSFColor.BLACK.index);
+        Font contentFont = ExcelUtils.setFont(wb, (short) 12, "宋体", false, HSSFColor.HSSFColorPredefined.BLACK.getIndex());
         CellStyle contentStyle = ExcelUtils.setCellStypeBorder(wb, BorderStyle.THIN, null, null);
         contentStyle.setFont(contentFont);
 
