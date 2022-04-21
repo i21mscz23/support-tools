@@ -1,8 +1,6 @@
 package com.xmd.utils.poi;
 
-import org.apache.poi.hssf.usermodel.HSSFCellStyle;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
-import org.apache.poi.hssf.util.HSSFColor;
 import org.apache.poi.ss.usermodel.*;
 import org.apache.poi.ss.util.CellRangeAddress;
 import org.apache.poi.ss.util.RegionUtil;
@@ -135,8 +133,9 @@ public class ExcelUtils {
             return cell.getCellFormula();
 
         } else if (cell.getCellType() == CellType.NUMERIC) {
-            DecimalFormat df = new DecimalFormat("#");
-            return String.valueOf(df.format(cell.getNumericCellValue()));
+//            DecimalFormat df = new DecimalFormat("#");
+//            return String.valueOf(df.format(cell.getNumericCellValue()));
+            return String.valueOf(cell.getNumericCellValue());
         }
         return "";
     }
@@ -183,8 +182,10 @@ public class ExcelUtils {
      * @param fillPatternType
      * @return
      */
-    public static CellStyle setCellStypeBorder(XSSFWorkbook wb,BorderStyle borderStyle,
-                                               IndexedColors colors,FillPatternType fillPatternType){
+    public static CellStyle setCellStyleBorder(XSSFWorkbook wb,
+                                               BorderStyle borderStyle,
+                                               IndexedColors colors,
+                                               FillPatternType fillPatternType){
         CellStyle cellStyle = wb.createCellStyle();
 
         // 设置上下左右边框

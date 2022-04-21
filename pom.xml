@@ -6,14 +6,14 @@
 
     <groupId>com.github.i21mscz23</groupId>
     <artifactId>support-tools</artifactId>
-    <version>1.0.6-RELEASE</version>
+    <version>1.0.7-RELEASE</version>
 
     <url>https://github.com/i21mscz23/support-tools</url>
     <description>support-tools</description>
     <name>support-tools</name>
 
     <properties>
-        <revision>1.0.6-RELEASE</revision>
+        <revision>1.0.7-RELEASE</revision>
 
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
@@ -21,7 +21,7 @@
         <java.version>1.8</java.version>
         <javadocExecutable>${java.home}/../bin/javadoc</javadocExecutable>
 
-        <fasterxml.jackson.version>2.12.3</fasterxml.jackson.version>
+        <fasterxml.jackson.version>2.13.2</fasterxml.jackson.version>
         <poi.version>5.2.1</poi.version>
     </properties>
 
@@ -112,6 +112,7 @@
             <version>${poi.version}</version>
         </dependency>
 
+
     </dependencies>
 
     <build>
@@ -199,11 +200,11 @@
 
     <distributionManagement>
         <snapshotRepository>
-            <id>support-tools-release</id>
+            <id>xmaodou-snapshot</id>
             <url>https://oss.sonatype.org/content/repositories/snapshots</url>
         </snapshotRepository>
         <repository>
-            <id>support-tools-snapshot</id>
+            <id>xmaodou-release</id>
             <url>https://oss.sonatype.org/service/local/staging/deploy/maven2</url>
         </repository>
     </distributionManagement>

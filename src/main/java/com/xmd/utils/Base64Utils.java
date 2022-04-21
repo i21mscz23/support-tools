@@ -14,6 +14,11 @@ public class Base64Utils {
         return Base64.getEncoder().encodeToString(bytes);
     }
 
+    /**
+     * Base64 转图片
+     * @param imgStr
+     * @return
+     */
     public static byte[] getByte(String imgStr){
         return Base64.getDecoder().decode(imgStr);
     }

@@ -224,6 +224,32 @@ public class RegexUtils {
     }
 
 
+    /**
+     * 判断是否包含特殊字符
+     * @param str
+     * @return
+     */
+    public static boolean isSpecialChar(String str) {
+        String regEx = "[ _`~!@#$%^&*()+=|{}':;',\\[\\].<>/?~！@#￥%……&*（）——+|{}【】‘；：”“’。，、？]|\n|\r|\t";
+        Pattern p = Pattern.compile(regEx);
+        Matcher m = p.matcher(str);
+        return m.find();
+    }
+
+    /**
+     * 提取字符串中的数字
+     * @return
+     */
+    public static String extractNumber(String source){
+        if(StringUtils.isNoneBlank(source)){
+            String regEx = "[^0-9]";
+            Pattern p = Pattern.compile(regEx);
+            Matcher m = p.matcher(source);
+
+            return m.replaceAll("").trim();
+        }
+        return null;
+    }
 
 
 
