@@ -1,5 +1,6 @@
 package com.xmd.utils.poi;
 
+import org.apache.commons.lang3.StringUtils;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.apache.poi.ss.usermodel.*;
 import org.apache.poi.ss.util.CellRangeAddress;
@@ -8,7 +9,6 @@ import org.apache.poi.xssf.usermodel.*;
 
 import java.io.IOException;
 import java.io.InputStream;
-import java.text.DecimalFormat;
 
 /**
  * @Description
@@ -221,7 +221,12 @@ public class ExcelUtils {
         //设置单元格为字符串类型
         cell.setCellType(CellType.STRING);
         //给每个单元格设置值
-        cell.setCellValue(value);
+        if(StringUtils.isNoneBlank(value)){
+            cell.setCellValue(value);
+        }else {
+            cell.setCellValue("");
+        }
+
     }
 
     /**
@@ -235,7 +240,7 @@ public class ExcelUtils {
      * @param cellStyle 单元格样式
      * @param value 值
      */
-    public static void setCellRangeAddress(int firstRow, int lastRow, int firstCol, int lastCol,
+    public static Row setCellRangeAddress(int firstRow, int lastRow, int firstCol, int lastCol,
                                                Sheet sheet,BorderStyle borderStyle,
                                                CellStyle cellStyle,String value){
 
@@ -271,6 +276,7 @@ public class ExcelUtils {
         // 上边框
         RegionUtil.setBorderTop(borderStyle, cra, sheet);
 
+        return row;
     }
 
 
