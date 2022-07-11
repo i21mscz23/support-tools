@@ -1,5 +1,6 @@
 package com.xmd.utils;
 
+import cn.hutool.json.JSONUtil;
 import com.fasterxml.jackson.annotation.JsonFilter;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
@@ -7,10 +8,17 @@ import com.fasterxml.jackson.databind.JavaType;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.ser.impl.SimpleBeanPropertyFilter;
 import com.fasterxml.jackson.databind.ser.impl.SimpleFilterProvider;
+import com.jayway.jsonpath.Configuration;
+import com.jayway.jsonpath.JsonPath;
+import com.jayway.jsonpath.Option;
+import org.apache.commons.lang3.StringUtils;
 
 import java.lang.reflect.Type;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
+import static com.jayway.jsonpath.JsonPath.using;
 
 public class JsonUtils {
 
@@ -23,10 +31,16 @@ public class JsonUtils {
      * @param object
      * @return
      */
-    public Map<String,Object> objectToMap(Object object){
-        Map<String,Object> map = new ObjectMapper().convertValue(object, new TypeReference<Map<String,Object>>(){});
+    public static Map<String,Object> objectToMap(Object object){
+//        Map<String,Object> map = new ObjectMapper().convertValue(object, new TypeReference<Map<String,Object>>(){});
+
+        Map<String,Object> map = JSONUtil.parse(object).toBean(HashMap.class);
         return map;
     }
+
+
+
+
 
     /**
      * 字符串 转 集合
@@ -114,6 +128,7 @@ public class JsonUtils {
     @JsonFilter(FILTER_NAME)
     interface FieldFilterMixIn{
     }
+
 
 
 }

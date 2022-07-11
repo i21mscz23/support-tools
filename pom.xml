@@ -22,6 +22,8 @@
         <javadocExecutable>${java.home}/../bin/javadoc</javadocExecutable>
 
         <fasterxml.jackson.version>2.13.2</fasterxml.jackson.version>
+        <jsonpath.version>2.7.0</jsonpath.version>
+
         <poi.version>5.2.1</poi.version>
     </properties>
 
@@ -73,6 +75,12 @@
             <groupId>com.fasterxml.jackson.core</groupId>
             <artifactId>jackson-databind</artifactId>
             <version>${fasterxml.jackson.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.jayway.jsonpath</groupId>
+            <artifactId>json-path</artifactId>
+            <version>${jsonpath.version}</version>
         </dependency>
 
 
