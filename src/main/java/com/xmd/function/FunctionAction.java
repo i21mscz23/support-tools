@@ -1,5 +1,7 @@
 package com.xmd.function;
 
+import static com.xmd.function.FunctionUtils.isTrue;
+
 /**
  * @Description
  * @Author lixiao
@@ -10,7 +12,7 @@ public class FunctionAction {
     public static void main(String[] args) {
 
         //1
-//        isTrue(false).throwMessage("异常");
+        isTrue(false).throwMessage("异常");
 
         //2
 //        String name = Thread.currentThread().getName();

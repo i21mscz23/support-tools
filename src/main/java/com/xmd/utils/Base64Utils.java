@@ -23,4 +23,16 @@ public class Base64Utils {
         return Base64.getDecoder().decode(imgStr);
     }
 
+    /**
+     * 字符串加密
+     * @param content
+     * @return
+     */
+    public static String encode(String content){
+        return Base64Utils.getImgStr(content.getBytes());
+    }
+
+
+
+
 }
