@@ -1,5 +1,6 @@
 package com.xmd.utils;
 
+import cn.hutool.http.HttpRequest;
 import cn.hutool.http.useragent.UserAgent;
 import cn.hutool.http.useragent.UserAgentUtil;
 import cn.hutool.json.JSONUtil;
